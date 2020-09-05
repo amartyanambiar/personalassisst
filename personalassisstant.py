@@ -81,7 +81,7 @@ if __name__=="__main__":
             speak("Wikipedia says")
             speak(results)
 
-        elif 'rhea' in query:
+        elif 'toxic' in query:
             speak('how can i help u sir')  
 
         elif 'open whatsapp' in query:
