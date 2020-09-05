@@ -19,15 +19,16 @@ def speak(audio):        #audio functionality
 def wishAmartya():      #wishAmartya function greets once main function checked
     
     try:
+        r = sr.Recognizer()
         with sr.Microphone() as source:
-            r = sr.Recognizer()
+            
             r.adjust_for_ambient_noise(source)
             r.pause_threshold = 1
             audio = r.listen(source)  
             initiate = r.recognize_google(audio, language='en-in')
             print("I am ready")
         
-            if 'Joker' or 'joker' in initiate:
+            if 'toxic' or 'toxic' in initiate:
                 
                 hour = int(datetime.datetime.now().hour)
                 #print(hour)
@@ -79,12 +80,17 @@ if __name__=="__main__":
             print(results)
             speak("Wikipedia says")
             speak(results)
-            
 
-        elif 'open classroom' in query:
+        elif 'rhea' in query:
+            speak('how can i help u sir')  
+
+        elif 'open whatsapp' in query:
+            web.get().open("https://web.whatsapp.com/")
+
+        elif 'open classroom' in query or 'open class' in query:
             web.get().open("https://classroom.google.com/u/1/a/not-turned-in/all")
 
-        elif 'open youtube' in query:
+        elif 'open youtube' in query or 'open Youtube' in query:
             web.get().open("https://youtube.com")
 
         elif 'open google' in query:
